@@ -202,9 +202,16 @@ Aku harap kita selalu bareng dan terus bahagia 💕
 <button onclick="nextPage('home')">Kembali ke Awal 💖</button>
 </div>
 
-<audio autoplay loop id="bgMusic">
-<source src="music.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+document.addEventListener("click", function () {
+  var music = document.getElementById("bgMusic");
+  music.play();
+});
+</script>
 
 <script>
 function nextPage(page){
