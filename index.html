@@ -1,0 +1,234 @@
+# for You
+my world universe
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Milboo 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+padding:0;
+overflow-x:hidden;
+font-family:'Poppins',sans-serif;
+text-align:center;
+color:white;
+background:linear-gradient(135deg,#ff9ecf,#ffc0cb,#ffd6e8);
+position:relative;
+}
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(rgba(255,255,255,0.2) 2px, transparent 2px);
+background-size:60px 60px;
+opacity:0.4;
+z-index:0;
+}
+
+.clouds{
+position:fixed;
+width:100%;
+height:200px;
+top:0;
+background:url('https://i.ibb.co/9cYb6qY/cloud.png') repeat-x;
+animation:moveClouds 60s linear infinite;
+opacity:0.5;
+z-index:1;
+}
+
+@keyframes moveClouds{
+from{background-position:0;}
+to{background-position:1000px;}
+}
+
+.section{
+position:relative;
+z-index:3;
+margin-top:150px;
+padding:20px;
+display:none;
+}
+
+#home{display:block;}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:65px;
+text-shadow:0 0 25px hotpink;
+}
+
+.kata{
+font-size:18px;
+width:80%;
+margin:auto;
+background:rgba(255,255,255,0.15);
+padding:15px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
+
+button{
+margin-top:30px;
+padding:12px 30px;
+background:linear-gradient(45deg,hotpink,deeppink);
+border:none;
+border-radius:40px;
+font-size:16px;
+color:white;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 0 20px pink;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.choco{
+position:fixed;
+top:-50px;
+font-size:28px;
+animation:fall linear infinite;
+z-index:1;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh);}
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.frame{
+padding:10px;
+margin:10px;
+border-radius:25px;
+background:linear-gradient(45deg,#ff69b4,#ff1493,#ff85c1);
+box-shadow:0 0 30px pink;
+}
+
+.frame img{
+width:200px;
+border-radius:20px;
+display:block;
+}
+
+video{
+width:300px;
+border-radius:20px;
+box-shadow:0 0 30px pink;
+margin-top:20px;
+}
+
+.bear{
+position:fixed;
+bottom:20px;
+right:20px;
+font-size:55px;
+animation:bearMove 3s ease-in-out infinite alternate;
+z-index:4;
+}
+
+@keyframes bearMove{
+from{transform:translateY(0);}
+to{transform:translateY(-20px);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="clouds"></div>
+<div class="bear">🧸</div>
+
+<!-- HALAMAN 1 -->
+<div class="section" id="home">
+<h1>Happy Valentine Milboo 💕</h1>
+<p class="kata">
+Kamu adalah coklat terindah dalam hidup aku 🍫💖  
+Semua kenangan kita selalu aku simpan baik-baik 💗
+</p>
+<button onclick="nextPage('memory')">Lihat Kenangan 📖</button>
+</div>
+
+<!-- HALAMAN 2 -->
+<div class="section" id="memory">
+<h1>Kenangan Kita 💞</h1>
+
+<div class="gallery">
+<div class="frame"><img src="foto1.jpg"></div>
+<div class="frame"><img src="foto2.jpg"></div>
+<div class="frame"><img src="foto3.jpg"></div>
+<div class="frame"><img src="foto4.jpg"></div>
+<div class="frame"><img src="foto5.jpg"></div>
+<div class="frame"><img src="foto6.jpg"></div>
+<div class="frame"><img src="foto7.jpg"></div>
+<div class="frame"><img src="foto8.jpg"></div>
+</div>
+
+<video controls>
+<source src="video.mp4" type="video/mp4">
+</video>
+
+<br>
+<button onclick="nextPage('thanks')">Halaman Terakhir 💌</button>
+</div>
+
+<!-- HALAMAN 3 -->
+<div class="section" id="thanks">
+<h1>Terima Kasih Milboo 💗</h1>
+
+<p class="kata">
+Terima kasih sudah jadi bagian terindah dalam hidup aku.  
+Terima kasih untuk semua perhatian dan kasih sayang kamu.  
+Aku harap kita selalu bareng dan terus bahagia 💕
+</p>
+
+<div class="frame">
+<img src="fototerakhir.jpg">
+</div>
+
+<br>
+<button onclick="nextPage('home')">Kembali ke Awal 💖</button>
+</div>
+
+<audio autoplay loop id="bgMusic">
+<source src="music.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function nextPage(page){
+document.getElementById('home').style.display='none';
+document.getElementById('memory').style.display='none';
+document.getElementById('thanks').style.display='none';
+document.getElementById(page).style.display='block';
+}
+
+function createChoco(){
+const choco=document.createElement("div");
+choco.classList.add("choco");
+choco.innerHTML="🍫";
+choco.style.left=Math.random()*100+"vw";
+choco.style.animationDuration=(Math.random()*3+3)+"s";
+document.body.appendChild(choco);
+setTimeout(()=>{choco.remove();},6000);
+}
+setInterval(createChoco,300);
+
+document.body.addEventListener('click',function(){
+document.getElementById('bgMusic').play();
+});
+</script>
+
+</body>
+</html>
